@@ -1,0 +1,24 @@
+{
+  "name": "traccar-live-tracking",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "npm@10.9.8",
+  "workspaces": [
+    "api",
+    "web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace api",
+    "start": "npm run start --workspace api",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run format:check && npm run check --workspace api && npm run build --workspace web"
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
