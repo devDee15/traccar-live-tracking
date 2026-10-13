@@ -12,6 +12,9 @@ export const rawTraccarPositionSchema = z.object({
     longitude: z.number().min(-180).max(180),
     speed: z.number().nonnegative().default(0),
     course: z.number().min(0).max(360).default(0),
+    valid: z.boolean().refine((value) => value === true, {
+      message: 'Only valid GPS fix packets should be normalized',
+    }),
     fixTime: z.string().or(z.date()),
   }),
 });
